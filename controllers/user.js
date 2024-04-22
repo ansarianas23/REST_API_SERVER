@@ -1,19 +1,9 @@
 const express = require('express');
 const model = require('../models/users');
 const User = model.User;
+const jwt = require('jsonwebtoken'); 
 
-// CREATE
-exports.createUser = (req, res)=>{
-    const user = new User(req.body);
-    user.save()
-    .then((data)=>{
-        console.log(data);
-        res.status(201).json(data);
-    }).catch((err)=>{
-        console.log(err);
-        res.status(400).json(err);
-    })
-}
+
 
 // READ ALL USERS
 exports.getAllUsers = async(req, res)=>{
