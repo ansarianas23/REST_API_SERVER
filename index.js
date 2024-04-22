@@ -24,9 +24,10 @@ server.use(express.static(process.env.PUBLIC_DIR));
 server.use(express.json());
 server.use('/products', productRouter.router);
 server.use('/users', userRouter.router);
+
 server.use('*',(req, res)=>{
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
-})
+});
 
 server.listen(process.env.PORT, ()=>{
     console.log("Server Started");
